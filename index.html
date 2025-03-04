@@ -9,95 +9,134 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
+    <style>
+        /* Additional styles for responsiveness */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        /* Flexbox and Grid adjustments */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Scalable text */
+        h1, h2, h3, p {
+            font-size: 1rem; /* Base font size */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Adjusted for smaller screens */
+            }
+            h2 {
+                font-size: 1.5rem; /* Adjusted for smaller screens */
+            }
+            h3 {
+                font-size: 1.25rem; /* Adjusted for smaller screens */
+            }
+        }
+
+        /* Image adjustments */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-       <!-- Navigation -->
-        <style>
-            #home {
-                background-image: url('https://i.postimg.cc/QdFvZg30/4380e1af235f1a1ef7eba93bd97fe044.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-        </style>
-            <nav class="fixed w-full z-50 bg from-red-700 to-black backdrop-blur-sm">
-                <div class="container mx-auto px-4">
-                    <div class="flex justify-between items-center py-4">
-                        <a href="https://www.lords.ac.in/hackathon/" class="flex items-center space-x-2">
-                            <img src="https://i.postimg.cc/HsYmJPGx/Untitled-design-1.jpg" alt="Logo" class="h-8 w-8">
-                            <span class="text-2xl font-bold text-white">HackPrix</span>
-                        </a>
-                        <div class="hidden md:flex space-x-6">
-                            <a href="#home" class="nav-link px-4 py-2 rounded-lg text-white">Home</a>
-                            <a href="#about" class="nav-link px-4 py-2 rounded-lg text-white">About</a>
-                            <a href="#tracks" class="nav-link px-4 py-2 rounded-lg text-white">Tracks</a>
-                            <a href="#schedule" class="nav-link px-4 py-2 rounded-lg text-white">Schedule</a>
-                            <a href="#sponsors" class="nav-link px-4 py-2 rounded-lg text-white">Sponsors</a>
-                            <a href="#faq" class="nav-link px-4 py-2 rounded-lg text-white">FAQ</a>
-                        </div>
-                        <button class="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-lg transition duration-300 text-white">
-                            Register Now
-                        </button>
-                        <button id="mobile-menu-btn" class="md:hidden">
-                            <i class="bi bi-list text-2xl text-white"></i>
-                        </button>
-                    </div>
+    <!-- Navigation -->
+    <style>
+        #home {
+            background-image: url('https://i.postimg.cc/QdFvZg30/4380e1af235f1a1ef7eba93bd97fe044.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <nav class="fixed w-full z-50 bg from-red-700 to-black backdrop-blur-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="https://www.lords.ac.in/hackathon/" class="flex items-center space-x-2">
+                    <img src="https://i.postimg.cc/HsYmJPGx/Untitled-design-1.jpg" alt="Logo" class="h-8 w-8">
+                    <span class="text-2xl font-bold text-white">HackPrix</span>
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link px-4 py-2 rounded-lg text-white">Home</a>
+                    <a href="#about" class="nav-link px-4 py-2 rounded-lg text-white">About</a>
+                    <a href="#tracks" class="nav-link px-4 py-2 rounded-lg text-white">Tracks</a>
+                    <a href="#schedule" class="nav-link px-4 py-2 rounded-lg text-white">Schedule</a>
+                    <a href="#sponsors" class="nav-link px-4 py-2 rounded-lg text-white">Sponsors</a>
+                    <a href="#faq" class="nav-link px-4 py-2 rounded-lg text-white">FAQ</a>
                 </div>
-            </nav>
+                <button class="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-lg transition duration-300 text-white">
+                    Register Now
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="bi bi-list text-2xl text-white"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-1">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-2 items-center justify-center text-center"></div>
-                <div>
-                    <h1 class="text-5xl md:text-7xl font-bold space-font mb-6 text-center">
-                        <span class="text-white">HackPrix</span> <span class="text-red-500">2025</span>
-                    </h1>
-                    <p class="text-xl mb-8 text-gray-300 text-center">
-                        Join us for 36 hours of innovation, coding, and creativity at
-                        <br>Lords Institute of Engineering and Technology, Hyderabad.
-                    </p>
-                    <div id="countdown" class="grid grid-cols-4 gap-4 max-w-md mx-auto mb-8">
-                        <div class="text-center p-3 bg-red-900/50 rounded-lg">
-                            <div id="days" class="text-3xl font-bold text-red-500">00</div>
-                            <div class="text-sm text-red-500">Days</div>
-                        </div>
-                        <div class="text-center p-3 bg-red-900/50 rounded-lg">
-                            <div id="hours" class="text-3xl font-bold text-red-500">00</div>
-                            <div class="text-sm text-red-500">Hours</div>
-                        </div>
-                        <div class="text-center p-3 bg-red-900/50 rounded-lg">
-                            <div id="minutes" class="text-3xl font-bold text-red-500">00</div>
-                            <div class="text-sm text-red-500">Minutes</div>
-                        </div>
-                        <div class="text-center p-3 bg-red-900/50 rounded-lg">
-                            <div id="seconds" class="text-3xl font-bold text-red-500">00</div>
-                            <div class="text-sm text-red-500">Seconds</div>
-                        </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <h1 class="text-5xl md:text-7xl font-bold space-font mb-6">
+                    <span class="text-white">HackPrix</span> <span class="text-red-500">2025</span>
+                </h1>
+                <p class="text-xl mb-8 text-gray-300">
+                    Join us for 36 hours of innovation, coding, and creativity at
+                    <br>Lords Institute of Engineering and Technology, Hyderabad.
+                </p>
+                <div id="countdown" class="grid grid-cols-4 gap-4 max-w-md mx-auto mb-8">
+                    <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                        <div id="days" class="text-3xl font-bold text-red-500">00</div>
+                        <div class="text-sm text-red-500">Days</div>
+                    </div>
+                    <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                        <div id="hours" class="text-3xl font-bold text-red-500">00</div>
+                        <div class="text-sm text-red-500">Hours</div>
+                    </div>
+                    <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                        <div id="minutes" class="text-3xl font-bold text-red-500">00</div>
+                        <div class="text-sm text-red-500">Minutes</div>
+                    </div>
+                    <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                        <div id="seconds" class="text-3xl font-bold text-red-500">00</div>
+                        <div class="text-sm text-red-500">Seconds</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+        </div>
+    </section>
                     
     <!-- Tracks Section -->
-    <section id="tracks" class="py-10 bg-gradient-to-b from-black to-red-900">
+    <section id="tracks" class="py-20 bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold space-font text-center mb-12 text-white">Hackathon Tracks</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                    <i class="bi bi-robot text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">AI/ML</h3>
-                    <p class="text-gray-300">Build innovative solutions using artificial intelligence and machine learning.</p>
+            <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Tracks</h2>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
+                    <i class="bi bi-lightbulb text-3xl text-red-500 mb-2"></i>
+                    <h3 class="text-lg font-bold mb-2">AI/ML</h3>
+                    <p class="text-gray-600 text-sm">Build intelligent applications using artificial intelligence and machine learning.</p>
                 </div>
-                <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                    <i class="bi bi-currency-bitcoin text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">Web3/Blockchain</h3>
-                    <p class="text-gray-300">Create decentralized applications and explore blockchain technology.</p>
+                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
+                    <i class="bi bi-globe text-3xl text-red-500 mb-2"></i>
+                    <h3 class="text-lg font-bold mb-2">Web3/Blockchain</h3>
+                    <p class="text-gray-600 text-sm">Create decentralized applications using blockchain technology.</p>
                 </div>
-                <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                    <i class="bi bi-phone text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">Mobile Development</h3>
-                    <p class="text-gray-300">Develop innovative mobile applications for iOS and Android platforms.</p>
+                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
+                    <i class="bi bi-phone text-3xl text-red-500 mb-2"></i>
+                    <h3 class="text-lg font-bold mb-2">Mobile Development</h3>
+                    <p class="text-gray-600 text-sm">Develop mobile applications for iOS and Android platforms.</p>
                 </div>
             </div>
         </div>
@@ -107,21 +146,21 @@
     <section id="about" class="py-20 bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">About HackPrix 2025</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-black p-6 rounded-lg shadow-sm">
+            <div class="flex justify-center gap-4 flex-wrap">
+                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
                     <i class="bi bi-calendar-event text-4xl text-indigo-600 mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">June 7-8, 2025</h3>
                     <p class="text-gray-600">36 hours of non-stop innovation and coding</p>
                 </div>
-                <div class="bg-black p-6 rounded-lg shadow-sm">
-                    <i class="bi bi-geo-alt text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">LIET, Hyderabad</h3>
-                    <p class="text-gray-600">Lords Institute of Engineering & Technology</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg shadow-sm">
+                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
                     <i class="bi bi-trophy text-4xl text-indigo-600 mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">₹1,00,000</h3>
                     <p class="text-gray-600">In prizes and opportunities</p>
+                </div>
+                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
+                    <i class="bi bi-people text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">300+ Participants</h3>
+                    <p class="text-gray-600">Developers, designers, and entrepreneurs</p>
                 </div>
             </div>
         </div>
@@ -139,184 +178,277 @@
                         <div class="relative">
                             <div class="ml-6 md:ml-0 md:flex md:items-center">
                                 <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                <h3 class="font-semibold">Opening Ceremony</h3>
-                                <p class="text-gray-600">9:00 AM - 10:00 AM</p>
-                                <p class="text-gray-600">Location: Auditorium</p>
-                            </div>
-                            <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                    <i class="bi bi-1-circle-fill text-white"></i>
+                                    <h3 class="font-semibold">Opening Ceremony</h3>
+                                    <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                                    <p class="text-gray-600">Location: Auditorium</p>
                                 </div>
-                            </div> 
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="ml-6 md:ml-0 md:flex md:items-center">
-                            <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                <h3 class="font-semibold">Lunch Break</h3>
-                                <p class="text-gray-600">12:00 PM - 1:00 PM</p>
-                                <p class="text-gray-600">Location: Cafeteria</p>
+                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                                        <i class="bi bi-1-circle-fill text-white"></i>
+                                    </div>
+                                </div> 
                             </div>
-                            <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                    <i class="bi bi-2-circle-fill text-white"></i>
+                        </div>
+                        <div class="relative">
+                            <div class="ml-6 md:ml-0 md:flex md:items-center">
+                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
+                                    <h3 class="font-semibold">Lunch Break</h3>
+                                    <p class="text-gray-600">12:00 PM - 1:00 PM</p>
+                                    <p class="text-gray-600">Location: Cafeteria</p>
                                 </div>
-                            </div>
-                            <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                                <h3 class="font-semibold md:hidden">Workshop: AI/ML</h3>
-                                <p class="text-gray-600 md:hidden">10:00 AM - 12:00 PM</p>
-                                <p class="text-gray-600">Enjoy a delicious meal hackers</p>
-                            </div> 
-                        </div>
-                    </div>
-                <!-- Day 2 -->
-                <div class="relative">
-                    <div class="ml-6 md:ml-0 md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                            <h3 class="font-semibold">Midnight Snack</h3>
-                            <p class="text-gray-600">12:00 AM - 1:00 AM</p>
-                            <p class="text-gray-600">Location: Cafeteria</p>
-                        </div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                            <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                <i class="bi bi-3-circle-fill text-white"></i>
-                            </div>
-                        </div>
-                        <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                            <h3 class="font-semibold md:hidden">Workshop: Web3/Blockchain</h3>
-                            <p class="text-gray-600 md:hidden">1:00 AM - 3:00 AM</p>
-                            <p class="text-gray-600">Enjoy a midnight snack</p>
-                        </div> 
-                    </div>
-                    <!-- Day 2 -->
-                    <div class="relative">
-                        <div class="ml-6 md:ml-0 md:flex md:items-center">
-                            <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                <h3 class="font-semibold">Closing Ceremony</h3>
-                                <p class="text-gray-600">9:00 AM - 10:00 AM</p>
-                                <p class="text-gray-600">Location: Auditorium</p>
-                            </div>
-                            <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                    <i class="bi bi-4-circle-fill text-white"></i>
+                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                                        <i class="bi bi-2-circle-fill text-white"></i>
+                                    </div>
                                 </div>
+                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
+                                    <h3 class="font-semibold md:hidden">Workshop: AI/ML</h3>
+                                    <p class="text-gray-600 md:hidden">10:00 AM - 12:00 PM</p>
+                                    <p class="text-gray-600">Enjoy a delicious meal hackers</p>
+                                </div> 
                             </div>
-                            <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                                <h3 class="font-semibold md:hidden">Workshop: Mobile Development</h3>
-                                <p class="text-gray-600 md:hidden">3:00 AM - 5:00 AM</p>
-                                <p class="text-gray-600">Join us for the closing ceremony</p>
-                            </div> 
+                        </div>
+                        <!-- Day 2 -->
+                        <div class="relative">
+                            <div class="ml-6 md:ml-0 md:flex md:items-center">
+                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
+                                    <h3 class="font-semibold">Midnight Snack</h3>
+                                    <p class="text-gray-600">12:00 AM - 1:00 AM</p>
+                                    <p class="text-gray-600">Location: Cafeteria</p>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                                        <i class="bi bi-3-circle-fill text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
+                                    <h3 class="font-semibold md:hidden">Workshop: Web3/Blockchain</h3>
+                                    <p class="text-gray-600 md:hidden">1:00 AM - 3:00 AM</p>
+                                    <p class="text-gray-600">Enjoy a midnight snack</p>
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- Day 2 -->
+                        <div class="relative">
+                            <div class="ml-6 md:ml-0 md:flex md:items-center">
+                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
+                                    <h3 class="font-semibold">Closing Ceremony</h3>
+                                    <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                                    <p class="text-gray-600">Location: Auditorium</p>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                                        <i class="bi bi-4-circle-fill text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
+                                    <h3 class="font-semibold md:hidden">Workshop: Mobile Development</h3>
+                                    <p class="text-gray-600 md:hidden">3:00 AM - 5:00 AM</p>
+                                    <p class="text-gray-600">Join us for the closing ceremony</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            </section>
+
+            <!-- Sponsors Section -->
+            <section id="sponsors" class="py-20 bg-gradient-to-b from-black to-red-900">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold space-font text-center mb-12 text-white">Our Sponsors</h2>
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 flex items-center max-w-xs">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/IBM_Globe.svg" alt="IBM" class="h-12 mx-auto mb-4" style="width: 50%;">
+                            <h3 class="text-lg font-bold mb-3">IBM</h3>
+                        </div>
+                        <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 flex items-center max-w-xs">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-12 mx-auto mb-4" style="width: 50%;">
+                            <h3 class="text-lg font-bold mb-3">Google</h3>
+                        </div>
+                        <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 flex items-center max-w-xs">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-12 mx-auto mb-4" style="width: 50%;">
+                            <h3 class="text-lg font-bold mb-3">GitHub</h3>
                         </div>
                     </div>
                 </div>
-            </div>                   
-</section>
-
-<!-- Sponsors Section -->
-<section id="sponsors" class="py-20 bg-gradient-to-b from-black to-red-900">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold space-font text-center mb-12 text-white">Our Sponsors</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-        <div class="flex justify-around"> </div>
-            <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/IBM_Globe.svg" alt="IBM" class="h-16 mx-auto mb-4">
-                <h3 class="text-xl font-bold mb-3">IBM</h3>
-            </div>
-            <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Slack_Technologies_Logo.svg" alt="Slack" class="h-16 mx-auto mb-4">
-                <h3 class="text-xl font-bold mb-3">Slack</h3>
-            </div>
-            <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-16 mx-auto mb-4">
-                <h3 class="text-xl font-bold mb-3">Google</h3>
-            </div>
-            <div class="bg-black/50 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-16 mx-auto mb-4">
-                <h3 class="text-xl font-bold mb-3">GitHub</h3>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- FAQ Section -->
-<section id="faq" class="py-20 bg-gradient-to-b from-black to-red-900">
-    <div class="container mx-auto px-4"></div>
-        <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Frequently Asked Questions</h2>
-        <div class="max-w-3xl mx-auto">
-            <div class="space-y-8">
-                <div>
-                    <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">What is HackPrix 2025? <i class="bi bi-chevron-down"></i></h3>
-                    <p class="text-gray-600 hidden">HackPrix 2025 is a 36-hour hackathon event that brings together developers, designers, and entrepreneurs to build innovative solutions to real-world problems.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">When and where is the event? <i class="bi bi-chevron-down"></i></h3>
-                    <p class="text-gray-600 hidden">HackPrix 2025 will take place on June 7-8, 2025, at Lords Institute of Engineering & Technology, Hyderabad.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">How can I register for the event? <i class="bi bi-chevron-down"></i></h3>
-                    <p class="text-gray-600 hidden">You can register for HackPrix 2025 by clicking on the "Register Now" button at the top of the page.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">What are the tracks for the hackathon? <i class="bi bi-chevron-down"></i></h3>
-                    <p class="text-gray-600 hidden">The tracks for HackPrix 2025 include AI/ML, Web3/Blockchain, and Mobile Development.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">Are there any prizes for the winners? <i class="bi bi-chevron-down"></i></h3>
-                    <p class="text-gray-600 hidden">Yes, there are prizes worth ₹1,00,000 for the winners of HackPrix 2025.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--photo dump-->
-<style>
-    .photo-dump {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-
-    .photo-dump img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-        .photo-dump {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 480px) {
-        .photo-dump {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-<section class="photo-dump py-20 bg-gradient-to-b from-black to-red-900">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrixHome.jpg" alt="Photo 1">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-130.jpg" alt="Photo 2">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-20.jpg" alt="Photo 3">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-1.jpeg" alt="Photo 4">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-139.jpg" alt="Photo 5">
-    <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-117.jpg" alt="Photo 6">
-</section>
-<!-- Footer -->
-<div class="bg-gradient-to-b from-black to-red-900 py-12">
-            <div>
-                <h3 class="text-lg font-bold bg-gradient-to-r from-black to-white text-transparent bg-clip-text">Quick Links</h3>
-                <ul class="mt-4">
-                    <div>
-                        <li><a href="#home" class="footer-link font-bold">Home</a></li>
-                        <li><a href="#about" class="footer-link font-bold">About</a></li>
-                        <li><a href="#tracks" class="footer-link font-bold">Tracks</a></li>
-                        <li><a href="#schedule" class="footer-link font-bold">Schedule</a></li>
-                        <li><a href="#sponsors" class="footer-link font-bold">Sponsors</a></li>
-                        <li><a href="#faq" class="footer-link font-bold">FAQ</a></li>
+            </section>
+            <!-- FAQ Section -->
+            <section id="faq" class="py-20 bg-gradient-to-b from-black to-red-900">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Frequently Asked Questions</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">What is HackPrix 2025? <i class="bi bi-chevron-down"></i></h3>
+                                <p class="text-gray-600 hidden">HackPrix 2025 is a 36-hour hackathon event that brings together developers, designers, and entrepreneurs to build innovative solutions to real-world problems.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">When and where is the event? <i class="bi bi-chevron-down"></i></h3>
+                                <p class="text-gray-600 hidden">HackPrix 2025 will take place on June 7-8, 2025, at Lords Institute of Engineering & Technology, Hyderabad.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">How can I register for the event? <i class="bi bi-chevron-down"></i></h3>
+                                <p class="text-gray-600 hidden">You can register for HackPrix 2025 by clicking on the "Register Now" button at the top of the page.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">What are the tracks for the hackathon? <i class="bi bi-chevron-down"></i></h3>
+                                <p class="text-gray-600 hidden">The tracks for HackPrix 2025 include AI/ML, Web3/Blockchain, and Mobile Development.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold cursor-pointer" onclick="toggleAnswer(this)">Are there any prizes for the winners? <i class="bi bi-chevron-down"></i></h3>
+                                <p class="text-gray-600 hidden">Yes, there are prizes worth ₹1,00,000 for the winners of HackPrix 2025.</p>
+                            </div>
+                        </div>
                     </div>
-                </ul>
+                </div>
+            </section>
+            <script>
+                function toggleAnswer(element) {
+                    const answer = element.nextElementSibling;
+                    answer.classList.toggle('hidden');
+                }
+            </script>
+            <!-- Organizers -->
+            <title>HackPrix 2025 Organizers</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background: linear-gradient(to bottom, #3d0000, rgb(138, 2, 2));
+                    text-align: center;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: auto;
+                    padding: 20px;
+                }
+                .grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                    gap: 10px;
+                    margin-top: 20px;
+                }
+                .organizer {
+                    background: white;
+                    padding: 5px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .organizer img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .name {
+                    margin-top: 5px;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                }
+            </style>
+            <div class="container">
+                <h1>HackPrix 2025 Organizers</h1>
+                <div class="grid" id="organizers"></div>
             </div>
-        </div>
-    <script src="script.js"></script>
+            <script>
+                const organizers = [
+                    { name: "Reda Kaleem", image: "image1.jpg" },
+                    { name: "Md.Yousha Khan", image: "image2.jpg" },
+                    { name: "Rayeesa Mahmood", image: "image3.jpg" },
+                    { name: "Mohammed Anwar", image: "image4.jpg" },
+                    { name: "Mohd Najeeb Murtuza", image: "image5.jpg" },
+                    { name: "Md.Mustafa Imran", image: "image6.jpg" },
+                    { name: "Mohammed Danish", image: "image7.jpg" },
+                    { name: "Mohammed Abdul Qavi", image: "image8.jpg" },
+                    { name: "Syed Ajmal Hussain", image: "image9.jpg" },
+                    { name: "Ghina Fatima", image: "image10.jpg" },
+                    { name: "Shaik Kashif Ali", image: "image11.jpg" },
+                    { name: "Ibrahim Hassan", image: "image12.jpg" },
+                    { name: "Abdeali Kanchwala", image: "image13.jpg" },
+                    { name: "Saniya Tabassum", image: "image14.jpg" },
+                    { name: "Safa Fatima Aman", image: "image15.jpg" },
+                    { name: "Ayesha Firdous", image: "image16.jpg" },
+                    { name: "Mohammed Omair Subhani", image: "image17.jpg" },
+                    { name: "Mohammed Ayaan", image: "image18.jpg" },
+                    { name: "Aisha Sultana", image: "image19.jpg" },
+                    { name: "Md.Misbah Ulla Khan", image: "image20.jpg" }
+                ];
+                const container = document.getElementById("organizers");
+                organizers.forEach(org => {
+                    const div = document.createElement("div");
+                    div.classList.add("organizer");
+                    div.innerHTML = `
+                        <img src="${org.image}" alt="${org.name}">
+                        <div class="name">${org.name}</div>
+                    `;
+                    container.appendChild(div);
+                });
+            </script>
 </body>
-</html>
+            <!-- Space after organizers -->
+            <div style="height: 50px;"></div>
+
+            <!-- Photo Dump -->
+            <style>
+                .photo-dump {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: center;
+                    background: linear-gradient(to bottom, rgb(99, 1, 1), black);
+                    padding: 20px 0;
+                }
+
+                .photo-dump img {
+                    width: 300px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+                @media (max-width: 668px) {
+                    .photo-dump img {
+                        width: 45%;
+                        height: auto;
+                    }
+                }
+
+                @media (max-width: 380px) {
+                    .photo-dump img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            </style>
+            <section class="photo-dump">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrixHome.jpg" alt="Photo 1">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-139.jpg" alt="Photo 5">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-78.jpg" alt="Photo 2"> 
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-31.jpg" alt="Photo 4">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-20.jpg" alt="Photo 7">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-24.jpg" alt="Photo 8">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-51.jpg" alt="Photo 3">
+                <img src="https://www.lords.ac.in/wp-content/uploads/2024/06/HackPrix-117.jpg" alt="Photo 6">
+            </section>
+
+            <!-- Footer -->
+            <div class="bg-gradient-to-b from-black to-red-900 py-12">
+                <div>
+                    <h3 class="text-lg font-bold bg-gradient-to-r from-black to-white text-transparent bg-clip-text">Quick Links</h3>
+                    <ul class="mt-4">
+                        <div>
+                            <li><a href="#home" class="footer-link font-bold">Home</a></li>
+                            <li><a href="#about" class="footer-link font-bold">About</a></li>
+                            <li><a href="#tracks" class="footer-link font-bold">Tracks</a></li>
+                            <li><a href="#schedule" class="footer-link font-bold">Schedule</a></li>
+                            <li><a href="#sponsors" class="footer-link font-bold">Sponsors</a></li>
+                            <li><a href="#faq" class="footer-link font-bold">FAQ</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <script src="script.js"></script>
+        </body>
+    </html>
