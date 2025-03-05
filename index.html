@@ -7,62 +7,202 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <style>
-        /* Additional styles for responsiveness */
+        /* Base styles */
+        :root {
+            --primary-color: #FF0000;
+            --secondary-color: #000000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+            color: white;
+        }
+
+        .space-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Container and layout */
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 0 1rem;
         }
 
-        /* Flexbox and Grid adjustments */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1rem;
         }
 
-        /* Scalable text */
-        h1, h2, h3, p {
-            font-size: 1rem; /* Base font size */
+        /* Navigation styles */
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem; /* Adjusted for smaller screens */
-            }
-            h2 {
-                font-size: 1.5rem; /* Adjusted for smaller screens */
-            }
-            h3 {
-                font-size: 1.25rem; /* Adjusted for smaller screens */
-            }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
         }
 
-        /* Image adjustments */
-        img {
-            max-width: 100%;
-            height: auto;
+        .nav-link:hover::after {
+            width: 100%;
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <style>
+
+        /* Hero section */
         #home {
             background-image: url('https://i.postimg.cc/QdFvZg30/4380e1af235f1a1ef7eba93bd97fe044.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            position: relative;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        #home > div {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Card hover effects */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Timeline styles */
+        .timeline-dot {
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Sponsor logos */
+        .sponsor-logo {
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+            max-width: 150px;
+            opacity: 0.7;
+        }
+
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* FAQ accordion */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Organizer cards */
+        .organizer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .organizer-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Photo gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 2rem 0;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+        }
+
+        /* Footer styles */
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
         }
     </style>
-    <nav class="fixed w-full z-50 bg from-red-700 to-black backdrop-blur-sm">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-black to-red-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-sm">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="https://www.lords.ac.in/hackathon/" class="flex items-center space-x-2">
+                <a href="#home" class="flex items-center space-x-2">
                     <img src="https://i.postimg.cc/HsYmJPGx/Untitled-design-1.jpg" alt="Logo" class="h-8 w-8">
                     <span class="text-2xl font-bold text-white">HackPrix</span>
                 </a>
@@ -81,173 +221,240 @@
                     <i class="bi bi-list text-2xl text-white"></i>
                 </button>
             </div>
-        </nav>
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center pt-1" style="text-align: center;"></section>
-            <div class="container mx-auto px-4">
-            <div class="flex flex-col items-center justify-center text-center">
-                <h1 class="text-5xl md:text-7xl font-bold space-font mb-6">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 animate-fade-in">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-in">
                 <span class="text-white">HackPrix</span> <span class="text-red-500">2025</span>
-                </h1>
-                <p class="text-xl mb-8 text-gray-300">
+            </h1>
+            <p class="text-xl mb-8 text-gray-300 animate-fade-in">
                 Join us for 36 hours of innovation, coding, and creativity at
-                <br>Lords Institute of Engineering and Technology, Hyderabad.
-                </p>
-                <div id="countdown" class="flex flex-wrap justify-center gap-4 max-w-md mx-auto mb-8">
-                <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                <br class="hidden md:block">
+                Lords Institute of Engineering and Technology, Hyderabad.
+            </p>
+            <div id="countdown" class="flex flex-wrap justify-center gap-4 max-w-md mx-auto mb-8">
+                <div class="text-center p-3 bg-red-900/50 rounded-lg w-24 animate-bounce">
                     <div id="days" class="text-3xl font-bold text-red-500">00</div>
                     <div class="text-sm text-red-500">Days</div>
                 </div>
-                <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                <div class="text-center p-3 bg-red-900/50 rounded-lg w-24 animate-bounce">
                     <div id="hours" class="text-3xl font-bold text-red-500">00</div>
                     <div class="text-sm text-red-500">Hours</div>
                 </div>
-                <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                <div class="text-center p-3 bg-red-900/50 rounded-lg w-24 animate-bounce">
                     <div id="minutes" class="text-3xl font-bold text-red-500">00</div>
                     <div class="text-sm text-red-500">Minutes</div>
                 </div>
-                <div class="text-center p-3 bg-red-900/50 rounded-lg">
+                <div class="text-center p-3 bg-red-900/50 rounded-lg w-24 animate-bounce">
                     <div id="seconds" class="text-3xl font-bold text-red-500">00</div>
                     <div class="text-sm text-red-500">Seconds</div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </section>
-                    
-    <!-- Tracks Section -->
-    <section id="tracks" class="py-20 bg-gradient-to-b from-black to-red-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Tracks</h2>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
-                    <i class="bi bi-lightbulb text-3xl text-red-500 mb-2"></i>
-                    <h3 class="text-lg font-bold mb-2">AI/ML</h3>
-                    <p class="text-gray-600 text-sm">Build intelligent applications using artificial intelligence and machine learning.</p>
-                </div>
-                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
-                    <i class="bi bi-globe text-3xl text-red-500 mb-2"></i>
-                    <h3 class="text-lg font-bold mb-2">Web3/Blockchain</h3>
-                    <p class="text-gray-600 text-sm">Create decentralized applications using blockchain technology.</p>
-                </div>
-                <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs">
-                    <i class="bi bi-phone text-3xl text-red-500 mb-2"></i>
-                    <h3 class="text-lg font-bold mb-2">Mobile Development</h3>
-                    <p class="text-gray-600 text-sm">Develop mobile applications for iOS and Android platforms.</p>
                 </div>
             </div>
         </div>
     </section>
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-in {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .animate-slide-in {
+            animation: slide-in 1s ease-out;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+    </style>
+
+      
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateCountdown() {
+                const hackathonDate = new Date('2025-06-07T09:00:00').getTime();
+                const now = new Date().getTime();
+                const difference = hackathonDate - now;
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                // Update countdown elements
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            // Update countdown immediately and then every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+                const nav = document.querySelector('.md\\:flex');
+                nav.classList.toggle('hidden');
+            });
+
+            // FAQ toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('bi-chevron-up');
+                    icon.classList.toggle('bi-chevron-down');
+                });
+            });
+        });
+    </script>
+    <!-- Tracks Section -->
+    <section id="tracks" class="py-20 bg-gradient-to-b from-black to-red-900 animate-fade-in">
+       <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white animate-slide-in">Tracks</h2>
+          <div class="flex justify-center gap-4 flex-wrap">
+             <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-lightbulb text-3xl text-red-500 mb-2"></i>
+                <h3 class="text-lg font-bold mb-2">AI/ML</h3>
+                <p class="text-gray-600 text-sm">Build intelligent applications using artificial intelligence and machine learning.</p>
+             </div>
+             <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-globe text-3xl text-red-500 mb-2"></i>
+                <h3 class="text-lg font-bold mb-2">Web3/Blockchain</h3>
+                <p class="text-gray-600 text-sm">Create decentralized applications using blockchain technology.</p>
+             </div>
+             <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-phone text-3xl text-red-500 mb-2"></i>
+                <h3 class="text-lg font-bold mb-2">Mobile Development</h3>
+                <p class="text-gray-600 text-sm">Develop mobile applications for iOS and Android platforms.</p>
+             </div>
+          </div>
+       </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-b from-black to-red-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">About HackPrix 2025</h2>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
-                    <i class="bi bi-calendar-event text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">June 7-8, 2025</h3>
-                    <p class="text-gray-600">36 hours of non-stop innovation and coding</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
-                    <i class="bi bi-trophy text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">₹1,00,000</h3>
-                    <p class="text-gray-600">In prizes and opportunities</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs">
-                    <i class="bi bi-people text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">300+ Participants</h3>
-                    <p class="text-gray-600">Developers, designers, and entrepreneurs</p>
-                </div>
-            </div>
-        </div>
+    <section id="about" class="py-20 bg-gradient-to-b from-black to-red-900 animate-fade-in">
+       <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white animate-slide-in">About HackPrix 2025</h2>
+          <div class="flex justify-center gap-4 flex-wrap">
+             <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-calendar-event text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">June 7-8, 2025</h3>
+                <p class="text-gray-600">36 hours of non-stop innovation and coding</p>
+             </div>
+             <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-trophy text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">₹1,00,000</h3>
+                <p class="text-gray-600">In prizes and opportunities</p>
+             </div>
+             <div class="bg-black p-6 rounded-lg shadow-sm flex-1 max-w-xs animate-fade-in">
+                <i class="bi bi-people text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">300+ Participants</h3>
+                <p class="text-gray-600">Developers, designers, and entrepreneurs</p>
+             </div>
+          </div>
+       </div>
     </section>
 
     <!-- Schedule Section -->  
     <section id="schedule" class="py-20 bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Event Schedule</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-indigo-200"></div>
-                    <div class="space-y-8">
-                        <!-- Practice Session -->
-                        <div class="relative">
-                            <div class="ml-6 md:ml-0 md:flex md:items-center">
-                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                    <h3 class="font-semibold">Opening Ceremony</h3>
-                                    <p class="text-gray-600">9:00 AM - 10:00 AM</p>
-                                    <p class="text-gray-600">Location: Auditorium</p>
-                                </div>
-                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                        <i class="bi bi-1-circle-fill text-white"></i>
-                                    </div>
-                                </div> 
+            <div class="relative"></div>
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-1/2 w-0.5 bg-indigo-200"></div>
+                <div class="space-y-8">
+                    <!-- Opening Ceremony -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 text-right pr-8 hidden md:block">
+                            <h3 class="font-semibold">Opening Ceremony</h3>
+                            <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                            <p class="text-gray-600">Location: Auditorium</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                                <i class="bi bi-flag-fill text-white"></i>
                             </div>
                         </div>
-                        <div class="relative">
-                            <div class="ml-6 md:ml-0 md:flex md:items-center">
-                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                    <h3 class="font-semibold">Lunch Break</h3>
-                                    <p class="text-gray-600">12:00 PM - 1:00 PM</p>
-                                    <p class="text-gray-600">Location: Cafeteria</p>
-                                </div>
-                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                        <i class="bi bi-2-circle-fill text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                                    <h3 class="font-semibold md:hidden">Workshop: AI/ML</h3>
-                                    <p class="text-gray-600 md:hidden">10:00 AM - 12:00 PM</p>
-                                    <p class="text-gray-600">Enjoy a delicious meal hackers</p>
-                                </div> 
-                            </div>
-                        </div>
-                        <!-- Day 2 -->
-                        <div class="relative">
-                            <div class="ml-6 md:ml-0 md:flex md:items-center">
-                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                    <h3 class="font-semibold">Midnight Snack</h3>
-                                    <p class="text-gray-600">12:00 AM - 1:00 AM</p>
-                                    <p class="text-gray-600">Location: Cafeteria</p>
-                                </div>
-                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                        <i class="bi bi-3-circle-fill text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                                    <h3 class="font-semibold md:hidden">Workshop: Web3/Blockchain</h3>
-                                    <p class="text-gray-600 md:hidden">1:00 AM - 3:00 AM</p>
-                                    <p class="text-gray-600">Enjoy a midnight snack</p>
-                                </div> 
-                            </div>
-                        </div>
-                        <!-- Day 2 -->
-                        <div class="relative">
-                            <div class="ml-6 md:ml-0 md:flex md:items-center">
-                                <div class="md:w-1/2 md:pr-8 text-right hidden md:block">
-                                    <h3 class="font-semibold">Closing Ceremony</h3>
-                                    <p class="text-gray-600">9:00 AM - 10:00 AM</p>
-                                    <p class="text-gray-600">Location: Auditorium</p>
-                                </div>
-                                <div class="absolute left-0 md:left-1/2 transform -translate-x-4 md:-translate-x-1/2">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                                        <i class="bi bi-4-circle-fill text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="relative md:w-1/2 md:pl-8 md:text-left">
-                                    <h3 class="font-semibold md:hidden">Workshop: Mobile Development</h3>
-                                    <p class="text-gray-600 md:hidden">3:00 AM - 5:00 AM</p>
-                                    <p class="text-gray-600">Join us for the closing ceremony</p>
-                                </div> 
-                            </div>
+                        <div class="w-1/2 pl-8 md:hidden">
+                            <h3 class="font-semibold">Opening Ceremony</h3>
+                            <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                            <p class="text-gray-600">Location: Auditorium</p>
                         </div>
                     </div>
-                </div>                   
-            </section>
+                    <!-- Lunch Break -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 text-right pr-8 hidden md:block">
+                            <h3 class="font-semibold">Lunch Break</h3>
+                            <p class="text-gray-600">12:00 PM - 1:00 PM</p>
+                            <p class="text-gray-600">Location: Cafeteria</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                                <i class="bi bi-cup-fill text-white"></i>
+                            </div>
+                        </div>
+                        <div class="w-1/2 pl-8 md:hidden">
+                            <h3 class="font-semibold">Lunch Break</h3>
+                            <p class="text-gray-600">12:00 PM - 1:00 PM</p>
+                            <p class="text-gray-600">Location: Cafeteria</p>
+                        </div>
+                    </div>
+                    <!-- Midnight Snack -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 text-right pr-8 hidden md:block">
+                            <h3 class="font-semibold">Midnight Snack</h3>
+                            <p class="text-gray-600">12:00 AM - 1:00 AM</p>
+                            <p class="text-gray-600">Location: Cafeteria</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                                <i class="bi bi-moon-fill text-white"></i>
+                            </div>
+                        </div>
+                        <div class="w-1/2 pl-8 md:hidden">
+                            <h3 class="font-semibold">Midnight Snack</h3>
+                            <p class="text-gray-600">12:00 AM - 1:00 AM</p>
+                            <p class="text-gray-600">Location: Cafeteria</p>
+                        </div>
+                    </div>
+                    <!-- Closing Ceremony -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 text-right pr-8 hidden md:block">
+                            <h3 class="font-semibold">Closing Ceremony</h3>
+                            <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                            <p class="text-gray-600">Location: Auditorium</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2">
+                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                                <i class="bi bi-flag-checkered text-white"></i>
+                            </div>
+                        </div>
+                        <div class="w-1/2 pl-8 md:hidden">
+                            <h3 class="font-semibold">Closing Ceremony</h3>
+                            <p class="text-gray-600">9:00 AM - 10:00 AM</p>
+                            <p class="text-gray-600">Location: Auditorium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>                   
+    </section>
 
             <!-- Sponsors Section -->
             <section id="sponsors" class="py-20 bg-gradient-to-b from-black to-red-900">
@@ -266,11 +473,17 @@
                             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-12 mx-auto mb-4" style="width: 50%;">
                             <h3 class="text-lg font-bold mb-3">GitHub</h3>
                         </div>
+                        <div class="bg-black/50 p-4 rounded-xl hover:transform hover:-translate-y-2 transition duration-300 flex-1 flex items-center max-w-xs">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Adobe_Systems_logo_and_wordmark.svg" alt="Adobe" class="h-12 mx-auto mb-4" style="width: 50%;">
+                            <h3 class="text-lg font-bold mb-3">Adobe</h3>   
+                        </div>
+                        
+
                     </div>
                 </div>
             </section>
             <!-- FAQ Section -->
-            <section id="faq" class="py-20 bg-gradient-to-b from-black to-red-900">
+            <section id="faq" class="py-20 bg-gra</div>dient-to-b from-black to-red-900">
                 <div class="container mx-auto px-4">
                     <h2 class="text-3xl font-bold space-grotesk text-center mb-12 text-white">Frequently Asked Questions</h2>
                     <div class="max-w-3xl mx-auto">
@@ -431,21 +644,23 @@
             </section>
 
             <!-- Footer -->
-            <div class="bg-gradient-to-b from-black to-red-900 py-12">
-                <div>
-                    <h3 class="text-lg font-bold bg-gradient-to-r from-black to-white text-transparent bg-clip-text">Quick Links</h3>
-                    <ul class="mt-4">
+            <footer class="bg-gradient-to-b from-black to-red-900 py-8">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center">
                         <div>
-                            <li><a href="#home" class="footer-link font-bold">Home</a></li>
-                            <li><a href="#about" class="footer-link font-bold">About</a></li>
-                            <li><a href="#tracks" class="footer-link font-bold">Tracks</a></li>
-                            <li><a href="#schedule" class="footer-link font-bold">Schedule</a></li>
-                            <li><a href="#sponsors" class="footer-link font-bold">Sponsors</a></li>
-                            <li><a href="#faq" class="footer-link font-bold">FAQ</a></li>
+                            <h3 class="text-lg font-bold bg-gradient-to-r from-black to-white text-transparent bg-clip-text">Quick Links</h3>
+                            <ul class="mt-4 space-y-2">
+                                <li><a href="#home" class="footer-link font-bold">Home</a></li>
+                                <li><a href="#about" class="footer-link font-bold">About</a></li>
+                                <li><a href="#tracks" class="footer-link font-bold">Tracks</a></li>
+                                <li><a href="#schedule" class="footer-link font-bold">Schedule</a></li>
+                                <li><a href="#sponsors" class="footer-link font-bold">Sponsors</a></li>
+                                <li><a href="#faq" class="footer-link font-bold">FAQ</a></li>
+                            </ul>
                         </div>
-                    </ul>
+                    </div>
                 </div>
-            </div>
+            </footer>
             <script src="script.js"></script>
-        </body>
-    </html>
+</body>
+</html>
